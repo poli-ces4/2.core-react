@@ -1,10 +1,14 @@
 /* eslint-disable react/prop-types */
 
-const VideoList = ({ title, children }) => {
+import VideoItem from "./VideoItem";
+import style from "./VideoList.module.css";
+const VideoList = ({ title, playList }) => {
   return (
-    <div>
+    <div className={style.container}>
       <h1>{title}</h1>
-      {children}
+      {playList.map((item, i) => (
+        <VideoItem key={i} {...item} />
+      ))}
     </div>
   );
 };
